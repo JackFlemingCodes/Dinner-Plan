@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dinner Plan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🍽️ Dinner Plan</h1>
+    <p class="tagline">What's for dinner, and who's cooking?</p>
+  </header>
+
+  <main>
+    <!-- Tonight -->
+    <section class="card highlight" id="tonight">
+      <h2>Tonight</h2>
+      <div id="tonight-result" class="result empty">
+        Press the button to pick a meal and a cook.
+      </div>
+      <div class="actions">
+        <button id="pick-tonight" class="primary">Pick tonight's dinner</button>
+        <button id="reroll-meal" class="secondary" disabled>New meal</button>
+        <button id="reroll-cook" class="secondary" disabled>New cook</button>
+        <button id="accept-tonight" class="secondary" disabled>✓ Lock it in</button>
+      </div>
+    </section>
+
+    <!-- Week plan -->
+    <section class="card" id="week">
+      <h2>This week</h2>
+      <p class="hint">Plans 7 dinners. Cooking turns are shared out evenly, and meals don't repeat until they have to.</p>
+      <button id="plan-week" class="primary">Plan the week</button>
+      <ol id="week-list" class="week-list"></ol>
+    </section>
+
+    <div class="columns">
+      <!-- People -->
+      <section class="card" id="people">
+        <h2>Cooks</h2>
+        <form id="person-form" class="add-form">
+          <input id="person-input" type="text" placeholder="Add a person…" maxlength="40" autocomplete="off" />
+          <button type="submit">Add</button>
+        </form>
+        <ul id="people-list" class="chip-list"></ul>
+        <p id="people-empty" class="hint">No one yet — add the people who cook.</p>
+      </section>
+
+      <!-- Meals -->
+      <section class="card" id="meals">
+        <h2>Meals</h2>
+        <form id="meal-form" class="add-form">
+          <input id="meal-input" type="text" placeholder="Add a meal…" maxlength="60" autocomplete="off" />
+          <button type="submit">Add</button>
+        </form>
+        <ul id="meals-list" class="chip-list"></ul>
+        <button id="reset-meals" class="link">Restore starter meals</button>
+      </section>
+    </div>
+
+    <!-- History -->
+    <section class="card" id="history">
+      <h2>Recent dinners</h2>
+      <ul id="history-list" class="history-list"></ul>
+      <p id="history-empty" class="hint">Dinners you lock in show up here. Used to keep things fair.</p>
+      <button id="clear-history" class="link">Clear history</button>
+    </section>
+  </main>
+
+  <footer>Everything is saved in this browser.</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
